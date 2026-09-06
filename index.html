@@ -26,11 +26,11 @@ html,body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.55 var(--
 body{background-image:radial-gradient(1200px 500px at 10% -10%,color-mix(in srgb,var(--cyan) 8%,transparent),transparent 60%)}
 .banner{background:var(--ink);color:var(--bg);font:500 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:9px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .banner b{color:var(--cyan)}
-.wrap{max-width:1100px;margin:0 auto;padding:0 32px 96px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px 96px}
 .mast{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;padding:36px 0 24px;border-bottom:1px solid var(--line)}
 .kicker{font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
 h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,80px);line-height:.9;margin:0;letter-spacing:-.035em}
-.lede{max-width:540px;color:var(--muted);margin:14px 0 0;font-size:15px}
+.lede{max-width:560px;color:var(--muted);margin:14px 0 0;font-size:15px}
 .controls{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 .theme{display:flex;background:var(--paper);border:1px solid var(--line);padding:3px;border-radius:999px}
 .theme button{border:0;background:transparent;color:var(--muted);padding:8px 14px;font:600 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:999px}
@@ -47,15 +47,18 @@ nav.tabs button{border:0;background:transparent;color:var(--muted);padding:15px 
 nav.tabs button.on{color:var(--ink);border-bottom-color:var(--cyan)}
 section.tab{display:none;padding-top:28px}section.tab.on{display:block}
 .chapno{font:500 56px/1 var(--serif);color:color-mix(in srgb,var(--cyan) 55%,var(--line));margin:0 0 2px}
-h2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.08;margin:0 0 14px;font-weight:500;letter-spacing:-.03em;max-width:22ch}
+h2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.08;margin:0 0 14px;font-weight:500;letter-spacing:-.03em;max-width:24ch}
+h3{font-family:var(--serif);font-size:22px;margin:28px 0 10px;font-weight:500;letter-spacing:-.02em}
 h4{margin:0 0 8px;font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.verdict{background:var(--paper);border-left:4px solid var(--cyan);padding:18px 22px;margin:0 0 20px;box-shadow:var(--shadow)}
+.verdict{background:var(--paper);border-left:4px solid var(--cyan);padding:18px 22px;margin:0 0 18px;box-shadow:var(--shadow)}
 .verdict p{margin:0;font-family:var(--serif);font-size:20px;line-height:1.35;font-weight:500}
+.prose{max-width:72ch}
+.prose p{margin:0 0 12px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .card{background:var(--paper);border:1px solid var(--line);padding:14px 16px}
 .card p{margin:0;color:var(--muted);font-size:14px}
-table{width:100%;border-collapse:collapse;font-size:13.6px;margin:0 0 18px;background:var(--paper)}
+table{width:100%;border-collapse:collapse;font-size:13.6px;margin:0 0 14px;background:var(--paper)}
 th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
 th{font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--wash)}
 .g{color:var(--keep);font-weight:600}.x{color:var(--kill);font-weight:600}
@@ -66,7 +69,7 @@ th{font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;co
 .switch{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .switch button{background:var(--paper);color:var(--ink);border:1px solid var(--line);padding:8px 12px;cursor:pointer;font:600 12.5px var(--sans)}
 .switch button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.kill{list-style:none;padding:0;margin:0 0 16px}
+.kill{list-style:none;padding:0;margin:4px 0 16px}
 .kill li{padding:8px 0 8px 18px;border-bottom:1px solid var(--hair);position:relative;font-size:14px}
 .kill li:before{content:"";width:7px;height:7px;background:var(--kill);position:absolute;left:0;top:14px}
 details{background:var(--paper);border:1px solid var(--line);padding:10px 14px;margin:8px 0 0}
@@ -76,27 +79,31 @@ details summary{cursor:pointer;font-weight:600}
 .note{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
 .hours{display:grid;grid-template-columns:1.1fr .9fr;gap:12px;margin:0 0 18px}
 .hours .card p{margin:0 0 8px}
-@media(max-width:980px){
-  .chapters,.grid4,.hours{grid-template-columns:1fr 1fr}
-  .grid3,.mast{grid-template-columns:1fr}
-  .controls{align-items:flex-start}.meta{text-align:left}
-}
-@media(max-width:640px){
+.def{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0 0 20px;background:var(--paper);border:1px solid var(--line);padding:16px 18px}
+.def b{font:600 11px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--brass);padding-top:2px}
+.def span{color:var(--ink);font-size:14px;line-height:1.45}
+@media (max-width: 640px){
   .wrap{padding:0 18px 72px}
   nav.tabs{margin-left:-18px;margin-right:-18px;padding:0 18px}
-  .chapters,.grid4,.hours{grid-template-columns:1fr}
+  .chapters,.grid4,.hours,.grid3,.mast,.def{grid-template-columns:1fr}
+  .controls{align-items:flex-start}.meta{text-align:left}
   h1{font-size:46px}
+}
+@media (min-width: 641px) and (max-width: 980px){
+  .chapters,.grid4,.hours{grid-template-columns:1fr 1fr}
+  .grid3,.mast,.def{grid-template-columns:1fr}
+  .controls{align-items:flex-start}.meta{text-align:left}
 }
 </style>
 </head>
 <body>
-<div class="banner"><span>sandbox / research only · no tickets · no outreach · no production deploys</span><span><b>IST</b> 6 Sep 2026 · rebuild 4 · key points</span></div>
+<div class="banner"><span>sandbox / research only · no tickets · no outreach · no production deploys</span><span><b>IST</b> 6 Sep 2026 · rebuild 5</span></div>
 <div class="wrap">
 <header class="mast">
   <div>
     <p class="kicker">Private operating folio</p>
     <h1>Sunday Heavy</h1>
-    <p class="lede">Eight calls. No restated memos. Demand over craft. Bangalore as plant. Tokens rented, vault owned.</p>
+    <p class="lede">Eight calls with the context still attached. Demand over craft. Bangalore as plant. Tokens rented, vault owned.</p>
   </div>
   <div class="controls">
     <div class="theme" role="group" aria-label="Theme">
@@ -133,13 +140,17 @@ details summary{cursor:pointer;font-weight:600}
 <p class="chapno">01</p>
 <p class="kicker">Capability altitude</p>
 <h2>Own demand. Score the offer.</h2>
-<div class="verdict"><p>One buyer class. One 20-item SKU rubric. FDE-to-product the same week. CGTrader Jun 2025–May 2026: AI is 17.6% of uploads and 1.1% of revenue. Aug Fiverr ~$3k GMV / ~$600 take — not a $5M studio. <span class="badge j">Judgment</span></p></div>
+<div class="verdict"><p>Next twelve months: one named buyer class, one SKU-accurate offer with a twenty-item rubric, and a reusable spec extracted the same week as the client job. Do not print $5M as current revenue — Aug Fiverr is ~$3k GMV / ~$600 take. <span class="badge j">Judgment</span></p></div>
+<div class="prose">
+  <p>Intern-to-CEO is not “become better at Blender.” AI collapsed the cost of a still, a 10-second loop, and a mid-poly pack. It did not invent a buyer. CGTrader’s own year (Jun 2025–May 2026): AI models were 17.6% of uploads and 1.1% of revenue — about one dollar in ninety. Taste, materials, camera, and identity still clear the register.</p>
+  <p>OpenAI’s FDE lead Colin Jarvis (Business Insider, Nov 2025): 39 engineers who “avoid services revenue” and exist to pave playbooks. A services studio sells the customization. A $100M-class company staffs FDEs only to productize them. If eight productize hours a week are forbidden by cash, intern-to-CEO is costume. Revisit 1 Apr 2027.</p>
+</div>
 <div class="hours">
   <table>
     <tr><th>Track</th><th>Next twelve months</th></tr>
     <tr><td>Demand</td><td>12 named conversations a quarter with people who can write $25–150k</td></tr>
     <tr><td>Eval</td><td>20-item rubric: SKU, label, materials, camera, identity, lighting, print-ready</td></tr>
-    <tr><td>FDE → product</td><td>One reusable spec per engagement / 90 days. Same week as the job</td></tr>
+    <tr><td>FDE → product</td><td>One reusable spec per engagement / 90 days, written the same week as the job</td></tr>
     <tr><td>Capital</td><td>One offer, one ICP, one kill metric. Cap three live clients</td></tr>
     <tr><td>Price</td><td>Rewrite one offer as outcome + SLA. Stop selling hours</td></tr>
   </table>
@@ -153,59 +164,96 @@ details summary{cursor:pointer;font-weight:600}
   </div>
 </div>
 <div class="grid3">
-  <div class="card"><h4>S1 Commoditised</h4><p class="score">0.45</p><p>Stay only with taste and SKU lock.</p></div>
-  <div class="card"><h4>S2 Absorbed</h4><p class="score">0.25</p><p>Studio becomes a plugin inside Adobe / Shopify / Unreal.</p></div>
-  <div class="card"><h4>S3 Platformed</h4><p class="score">0.30</p><p>Only compounding path. Sub-5 headcount at $1M ARR.</p></div>
+  <div class="card"><h4>S1 Commoditised · 0.45</h4><p class="score">0.45</p><p>Opinion: stills and generic packs race to $50–300. Stay only with taste and SKU lock.</p></div>
+  <div class="card"><h4>S2 Absorbed · 0.25</h4><p class="score">0.25</p><p>Adobe / Shopify / Unreal fold viz into the tool the buyer already pays. Studio becomes a plugin.</p></div>
+  <div class="card"><h4>S3 Platformed · 0.30</h4><p class="score">0.30</p><p>Opinionated orchestration. Only compounding path. YC W26 pattern: sub-5 headcount at $1M ARR.</p></div>
 </div>
 <ul class="kill">
   <li>Better Blender as the year · CUDA weekends · India GPU reseller identity</li>
-  <li>Raising on a services deck · llama-catalog fine-tunes as a company</li>
-  <li>Agent-OS-as-studio · intern-to-CEO if eight productize hours are forbidden by cash</li>
+  <li>Raising on a services deck · llama-catalog fine-tunes as a company · agent-OS-as-studio</li>
 </ul>
-<p class="small">Falsify: paid AI-gen 3D >20% GMV on a CGTrader-class market by Jun 2027. Accel Dec 2025: no India AI-first at $40–50M on a one-year clock. Revisit 1 Apr 2027.</p>
+<p class="small">Falsify: paid AI-gen 3D >20% GMV on a CGTrader-class market by Jun 2027. Accel Dec 2025: no India AI-first at $40–50M on a one-year clock.</p>
 <details><summary>Sources</summary><p class="small">businessinsider.com OpenAI FDE Jarvis 2025-11 · cgtrader.com/discover/3d-market-trends · 3dprinting.com / 404media.co · techcrunch.com 2025-12-27 Accel · a16z.com/services-led-growth · bvp.com Cloud 100</p></details>
 </section>
 
 <section class="tab" id="p2">
 <p class="chapno">02</p>
 <p class="kicker">Leverage geography</p>
-<h2>Bangalore is the plant.</h2>
-<div class="verdict"><p>Hybrid 41 · stay 38 · London 31 · SF relocate 28 (cash and family ×2). Relocate-now is a $9–10k family month with no petitioner. Review 1 Apr 2027 only after ₹7.3L (6× EMI). <span class="badge j">Judgment</span></p></div>
+<h2>Bangalore is the plant. San Francisco is a purchased week.</h2>
+<div class="verdict"><p>Do not move the family in 2026. Live and hire in Bangalore. The winning model is hybrid — plant here, buy short SF weeks only after a six-month EMI cash pot. On a judgment scorecard that double-counts cash and family, hybrid scores 41 against stay-put 38, a London move 31, and an SF family relocate 28. <span class="badge j">Judgment</span></p></div>
+
+<div class="def">
+  <b>Stay</b><span>Keep operating from Bangalore. No international weeks until the cash pot exists.</span>
+  <b>Hybrid · 41</b><span>The call. Household stays in Bangalore. You buy a solo ten-day SF trip only when the pot and three named meetings are real. Not a move.</span>
+  <b>London move · 31</b><span>Family relocates to London. Capital and policy density, still not application-buyer density for a no-brand founder, and still expensive.</span>
+  <b>SF relocate · 28</b><span>Family relocates to the Bay. Highest network and ceiling. Loses because it is a $9–10k family month with no US visa petitioner and ₹0 emergency cash.</span>
+  <b>Cash ×2, family ×2</b><span>Two factors were counted twice on purpose: cash/runway, and family cost. EMI is ₹1.21L/month. Emergency pot today is ₹0. Those two facts dominate the score. This is not the 5W city index below.</span>
+  <b>Petitioner</b><span>A US person or company who can sponsor an O-1. You cannot self-file. Typical cost $10–20k plus the sponsor. There is none on paper today.</span>
+</div>
+
+<h3>The scorecard — why 41 / 38 / 31 / 28</h3>
+<p class="small">Each cell is 1–5 judgment, not a published index. Cash and family are double-weighted, then totalled. Hybrid wins because it keeps the P&L and the household in Bangalore while still buying the one thing Bangalore does not have: application-buyer density.</p>
+<table>
+  <tr><th>Factor</th><th>Stay BLR</th><th>Hybrid</th><th>Move SF</th><th>Move LDN</th></tr>
+  <tr><td>Cash / runway (×2)</td><td class="g">5</td><td>4</td><td class="x">1</td><td class="x">2</td></tr>
+  <tr><td>Network for $100M-class</td><td>2</td><td>4</td><td class="g">5</td><td>4</td></tr>
+  <tr><td>Family cost (×2)</td><td class="g">5</td><td>4</td><td class="x">1</td><td>2</td></tr>
+  <tr><td>Serendipity</td><td>2</td><td>3</td><td class="g">5</td><td>4</td></tr>
+  <tr><td>Hire ICs / agents</td><td>4</td><td>4</td><td>3</td><td>3</td></tr>
+  <tr><td>Capital if raising</td><td>2</td><td>3</td><td class="g">5</td><td>4</td></tr>
+  <tr><td>Health / travel</td><td>4</td><td>3</td><td>2</td><td>2</td></tr>
+  <tr><td>Immigration</td><td class="g">5</td><td>4</td><td class="x">1</td><td>2</td></tr>
+  <tr><td>Fit to current P&L</td><td class="g">5</td><td>4</td><td class="x">1</td><td>2</td></tr>
+  <tr><td>Ceiling if domain = AI apps</td><td>2</td><td>4</td><td class="g">5</td><td>4</td></tr>
+  <tr><td><b>Weighted total</b></td><td>38</td><td class="g">41</td><td class="x">28</td><td>31</td></tr>
+</table>
+
+<h3>A different number — 5W AI City Index 2026</h3>
+<p class="small">This index scores cities by capital, talent, infrastructure, policy, frontier labs, and citation share. It says where the frontier is. It does not say a founder with ₹0 emergency should live there. India AI VC 2025: $643M / 100 deals. US: $121B / 765.</p>
 <div class="grid3">
-  <div class="card"><h4>SF Bay · 92.5</h4><p class="score">#1</p><p>Frontier. Family-of-4 $9–10k/mo. Median rent Jul 2026 $3,714.</p></div>
-  <div class="card"><h4>London · 88.7</h4><p class="score">#2</p><p>Capital + policy. Not buyer density for a no-brand founder.</p></div>
-  <div class="card"><h4>Bangalore · 59.8</h4><p class="score">#18</p><p>Plant stays. India AI VC $643M vs US $121B (2025).</p></div>
+  <div class="card"><h4>SF Bay · #1 · 92.5</h4><p>~50% of US AI VC gravity. Family-of-4 $9–10k/mo. Median rent Jul 2026 $3,714. $180k salaries already squeezed (NYT Jun 2026).</p></div>
+  <div class="card"><h4>London · #2 · 88.7</h4><p>DeepMind gravity, OpenAI / Anthropic / Cursor at King’s Cross, £8.3B AI venture haul in 2025. Research density, not your buyer.</p></div>
+  <div class="card"><h4>Bangalore · #18 · 59.8</h4><p>Services scale, next to Hyderabad 62.1 and Tokyo 60.5. Plant stays. Weeks are purchased, not lived.</p></div>
+</div>
+
+<h3>The cash gate — ₹7.3L</h3>
+<div class="prose">
+  <p>EMI is ₹1.21L a month. Six months of EMI is ₹7.26L, rounded to ₹7.3L. That is the emergency pot. It is ₹0 today. Relocate-now is therefore a $9–10k family month with no buffer and no petitioner. Review a family move on 1 Apr 2027, and only if the pot exists. A solo ten-day SF is a different, smaller object: $4.5–7k, three named meetings on paper, pot at least 3 months of EMI.</p>
 </div>
 <table>
-  <tr><th>Gate</th><th>Action</th></tr>
-  <tr><td>Emergency < 3 months EMI</td><td class="x">No international weeks</td></tr>
-  <tr><td>3–6 months + three named meetings on paper</td><td class="g">One solo ten-day SF</td></tr>
-  <tr><td>US buyer or petitioner + 12 months USD family runway</td><td>Reopen relocate. Not before</td></tr>
+  <tr><th>If</th><th>Then</th></tr>
+  <tr><td>Emergency < 3 months EMI (today: ₹0)</td><td class="x">No international weeks. Do not start an O-1 file.</td></tr>
+  <tr><td>3–6 months of EMI saved + three named SF meetings on paper</td><td class="g">One solo ten-day SF. Household stays in Bangalore.</td></tr>
+  <tr><td>US buyer or petitioner + twelve months USD family runway</td><td>Reopen a family relocate. Not before 1 Apr 2027, and not before the ₹7.3L pot.</td></tr>
 </table>
+<p class="small">BLR family-comfortable band ₹75k–1.35L. His rent is <span class="badge">Unknown</span> — in-laws’ house. “HSR is SF” is cope: GCC hiring is not a founder ceiling.</p>
 <ul class="kill">
   <li>Family move in 2026 · O-1 before the emergency pot</li>
-  <li>Coimbatore as HQ · “HSR is SF” · conference tourism as distribution</li>
+  <li>Coimbatore as operating HQ · “HSR is SF” as a strategy · conference tourism dressed as distribution</li>
 </ul>
-<p class="small">O-1 often $10–20k and needs a US petitioner. Solo two-week SF $4.5–7k. Rent = <span class="badge">Unknown</span> (in-laws’ house).</p>
-<details><summary>Sources</summary><p class="small">5wpr.com/research/ai-city-index · prnewswire.com 5W 2026-07-08 · techcrunch.com 2025-12-27 Accel · apartmentlist.com · nytimes.com 2026-06-29</p></details>
+<details><summary>Sources</summary><p class="small">5wpr.com/research/ai-city-index · prnewswire.com 5W 2026-07-08 · techcrunch.com 2025-12-27 Accel $643M vs $121B · apartmentlist.com · nytimes.com 2026-06-29 · indexventures.com/winning-in-the-us</p></details>
 </section>
 
 <section class="tab" id="p3">
 <p class="chapno">03</p>
 <p class="kicker">Founder body · brief subject ~40</p>
 <h2>Walk. Window. Neck. Keep the statin.</h2>
-<div class="verdict"><p>8–10k steps. 8–10h TRE. Deep-neck flexors daily. McKenzie only if it centralizes. Keep rosuvastatin as prescribed. Subject is the brief’s ~40 founder, not a merged biography. BMI / CAP / MTHFR = <span class="badge">Unknown</span>. <span class="badge j">Judgment</span></p></div>
+<div class="verdict"><p>Keep rosuvastatin as prescribed. 8–10k steps. Eat inside an 8–10 hour window (TRE). Deep-neck flexors daily. McKenzie only if pain centralizes. No overhead press, no back squat, no bar on the neck. Subject is the brief’s ~40 founder, not a merged biography. BMI / CAP / MTHFR = <span class="badge">Unknown</span>. <span class="badge j">Judgment</span></p></div>
+<div class="prose">
+  <p>TRE means time-restricted eating: all calories inside one 8–10 hour window, same window every day, stop switching. Journal of Hepatology Dec 2025 (n=333): 16-week TRE cut liver fat (MRI-PDFF) −25.8% against standard of care +0.7%. Calorie restriction hit −24.7%. Pick one. Walking is the first lever that does not fight a cervical budget. Combined aerobic plus unloaded strength is the second. Do not stop a prescribed statin on internet folklore.</p>
+  <p>Centralize, in McKenzie terms, means arm or shoulder pain moving toward the spine — a good sign. If it does not, skip McKenzie. Deep-neck flexor / CCFT (Jull 2002): 10 × 10-second holds, twice daily, 6–12 weeks. Collars, posture shirts, and buzzers stay dead.</p>
+</div>
 <table>
   <tr><th></th><th>Dose</th><th></th></tr>
   <tr><td>Walk</td><td>180 min or 8–10k steps</td><td class="g">First</td></tr>
-  <tr><td>Unloaded strength</td><td>2 × 25 min band / floor</td><td class="g">Second</td></tr>
-  <tr><td>TRE or CR</td><td>Pick one window and stop switching. J Hepatol 2025 TRE −25.8% MRI-PDFF vs SOC +0.7%</td><td class="g">Third</td></tr>
+  <tr><td>Unloaded strength</td><td>2 × 25 min band / floor. No bar on the neck</td><td class="g">Second</td></tr>
+  <tr><td>TRE or CR</td><td>Pick one window. TRE −25.8% MRI-PDFF vs SOC +0.7%</td><td class="g">Third</td></tr>
   <tr><td>Rosuvastatin</td><td>As prescribed. 52-week RCT IHCL −42% vs −9%</td><td class="g">Keep</td></tr>
   <tr><td>CCFT / deep-neck flexor</td><td>10 × 10s twice daily, 6–12 weeks</td><td class="g">Daily</td></tr>
   <tr><td>McKenzie</td><td>Only if symptoms centralize</td><td>Conditional</td></tr>
-  <tr><td>OHP, back squat, bar on neck, collars, buzzers, benfotiamine-as-liver</td><td>—</td><td class="x">Kill</td></tr>
+  <tr><td>OHP, back squat, collars, buzzers, benfotiamine-as-liver</td><td>—</td><td class="x">Kill</td></tr>
 </table>
-<p class="small">12-week accept: median steps ≥8k, strength ≥2/wk, window ≥5 days, NRS −2. Travel kit: mini-band, towel, screw DBs ≤8 kg, timer.</p>
+<p class="small">12-week accept: median steps ≥8k, strength ≥2/wk, window ≥5 days, pain NRS −2. Travel kit: mini-band, towel, screw DBs ≤8 kg, timer.</p>
 <details><summary>Sources</summary><p class="small">J Hepatol 2025;83(6):1256–1265 PubMed 40543603 · archives-pmr.org 2024 McKenzie · rosuvastatin IHCL PubMed 39326342 · JAMA Intern Med 2025 statin/HCC · Jull 2002 CCFT</p></details>
 </section>
 
@@ -213,11 +261,14 @@ details summary{cursor:pointer;font-weight:600}
 <p class="chapno">04</p>
 <p class="kicker">Personal AI operating systems</p>
 <h2>Own the vault. Rent the model.</h2>
-<div class="verdict"><p>Architecture C: local files you can zip, rented frontier overnight, one daily surface, four hours a week. Rewind, Humane, LettaBot are dead. That is the product lesson. <span class="badge j">Judgment</span></p></div>
+<div class="verdict"><p>Architecture C: a folder of files you can zip, plus a rented frontier model overnight. One daily surface. Four hours a week. Do not become the harness. <span class="badge j">Judgment</span></p></div>
+<div class="prose">
+  <p>Vault = markdown, JSONL, images on disk, with a schema written down. Model = whatever frontier you rent this quarter. Harness = the agent UI (OpenClaw, Hermes, Nowledge, ChatGPT memory). Vendors die: Rewind capture ended 19 Dec 2025 after Meta bought Limitless. Humane’s cloud died Feb 2025. LettaBot archived May 2026. The only durable primitive is the zip. Intelligence is rented. The harness is replaceable.</p>
+</div>
 <div class="grid3">
-  <div class="card"><h4>A Local-first</h4><p>Durable only if the vault is files. Becomes a hobby the week CUDA looks interesting.</p></div>
-  <div class="card"><h4>B Cloud CoS</h4><p>Fast. Not yours. One ToS change and the autobiography leaves.</p></div>
-  <div class="card"><h4>C Hybrid</h4><p class="g">Recommended.</p><p>Schema on disk. Swap the harness. Four hours.</p></div>
+  <div class="card"><h4>A Local-first agent</h4><p>OpenClaw, Hermes, Mnemosyne, taOSmd. Durable only if the vault is files. Becomes a hobby the week CUDA looks interesting.</p></div>
+  <div class="card"><h4>B Cloud chief of staff</h4><p>Mem.ai, ChatGPT memory, hosted OpenMemory. Fast. Not yours. One ToS change and the autobiography leaves the building.</p></div>
+  <div class="card"><h4>C Hybrid</h4><p class="g">Recommended.</p><p>Rent intelligence, own memory. Schema on disk. Swap the harness. One surface. Four hours.</p></div>
 </div>
 <ul class="kill">
   <li>Pendants · fine-tune-a-twin as the OS · fourth dashboard</li>
@@ -231,7 +282,10 @@ details summary{cursor:pointer;font-weight:600}
 <p class="chapno">05</p>
 <p class="kicker">Inference margin · pages opened 5 Sep 2026</p>
 <h2>Buy tokens. Own eval. ₹0 silicon.</h2>
-<div class="verdict"><p>Seat for twelve months: API + eval. Reserved GPU is illegal — cervical budget, EMI ₹1.21L, emergency ₹0. Kill 31 Mar 2027 if no retained buyer pays twice. <span class="badge j">Judgment</span></p></div>
+<div class="verdict"><p>For twelve months: buy API tokens and own the eval rubric. Do not buy or reserve a GPU. Cervical budget, EMI ₹1.21L, emergency ₹0 make reserved silicon illegal. Kill this lab on 31 Mar 2027 if no retained buyer pays twice — once for the delivery, once for the reusable spec. <span class="badge j">Judgment</span></p></div>
+<div class="prose">
+  <p>This tab is not an inference company. It is a seat: which tokens to buy, which packs are honest, and which worlds would change the week. Together provisioned throughput has a one-month minimum — also illegal under the capital rule. India H100 at ₹362/hr is a public list price, not an edge. E2E monthly ₹2,26,849 ex-tax.</p>
+</div>
 <div class="switch" id="wswitch">
   <button class="on" data-w="W1">W1 glut 0.40</button>
   <button data-w="W2">W2 famine 0.15</button>
@@ -243,17 +297,17 @@ details summary{cursor:pointer;font-weight:600}
 <table>
   <tr><th>SKU</th><th>List · 5 Sep 2026</th></tr>
   <tr><td>OpenAI Luna / Terra / Sol / Astra</td><td>$0.20/$1.20 · $2/$12 · $4/$20 promo to 21 Nov · $10/$50. Residency +10%</td></tr>
-  <tr><td>Haiku 4.5 / Sonnet 5 / Opus 5</td><td>$1/$5 · $2/$10 · $5/$25. Sep 1 hike to $3/$15 withdrawn</td></tr>
+  <tr><td>Haiku 4.5 / Sonnet 5 / Opus 5</td><td>$1/$5 · $2/$10 · $5/$25. Sep 1 hike to $3/$15 withdrawn 10 Aug 2026</td></tr>
   <tr><td>Grok 4.6</td><td>$2/$6 under 200k</td></tr>
   <tr><td>Wan / Kling / Seedream / Veo 3</td><td>$0.05/s · $0.07/s · $0.03/img · $0.40/s</td></tr>
-  <tr><td>E2E 1×H100 80GB</td><td>₹362/hr · monthly ₹2,26,849 ex-tax. Public list, not an edge</td></tr>
+  <tr><td>E2E 1×H100 80GB</td><td>₹362/hr · monthly ₹2,26,849 ex-tax</td></tr>
 </table>
 <div class="grid3">
   <div class="card"><h4>Honest pack</h4><p class="score">$11</p><p>Haiku + Seedream + Wan. ≈ ₹970 at ₹88.5 <span class="badge">Assumed FX</span></p></div>
   <div class="card"><h4>Product-accurate</h4><p class="score">$22</p><p>Sonnet + Flash Image + Veo Fast. SKU lock is the axis.</p></div>
   <div class="card"><h4>Fails even if cheap</h4><p class="score">~$5</p><p>Groq 8B + Flux-schnell. Identity drift is a process fail.</p></div>
 </div>
-<p class="small">EMI ₹1.21L fixed. AI COGS ₹12–22k planning. GPU capex ₹0. Current mix <span class="badge">Unknown</span>. H100 median $3.32/hr (GetDeploying 5 Sep).</p>
+<p class="small">EMI ₹1.21L fixed. AI COGS ₹12–22k planning. GPU capex ₹0. Current mix <span class="badge">Unknown</span>. H100 median $3.32/hr across 40 providers (GetDeploying 5 Sep).</p>
 <ul class="kill">
   <li>Wrappers: Jasper, Copy.ai, Tome, Playground, Builder.ai, fine-tune-as-a-service</li>
   <li>GPU / India: private-GPT shops, flip desks, reserved H100 on a card</li>
@@ -266,17 +320,20 @@ details summary{cursor:pointer;font-weight:600}
 <section class="tab" id="p6">
 <p class="chapno">06</p>
 <p class="kicker">California ordinary gains</p>
-<h2>Export lots. Drip high-basis.</h2>
-<div class="verdict"><p>B if lots export by day 14. Else C, pause. FTB 28 Jan 2026: California taxes all capital gains as ordinary income. NAV, lots, MAGI = <span class="badge">Unknown</span>. No VOO. No tickets. <span class="badge j">Judgment</span></p></div>
-<table>
-  <tr><th></th><th>When</th></tr>
-  <tr><td class="g">B drip higher-basis</td><td>Lot reports exist as files. Can stand residual concentration</td></tr>
-  <tr><td class="g">C pause</td><td>Export slips past day 14. Do not average basis</td></tr>
-  <tr><td>Exchange fund</td><td>Old low-basis only, accredited / QP, no 7-year cash need. Defers — does not erase</td></tr>
-  <tr><td class="x">A sell-to-zero</td><td>Illegal without exact lots. FIFO will hit a low-basis lot</td></tr>
-</table>
+<h2>Export the lots. Drip the expensive shares.</h2>
+<div class="verdict"><p>Do not sell until Book A and Book B lot reports exist as files. Then drip the high-basis lots (option B). If the export slips past day 14, pause (option C). California taxes all capital gains as ordinary income — there is no state discount for holding a year. NAV, lots, MAGI = <span class="badge">Unknown</span>. No VOO. No tickets. <span class="badge j">Judgment</span></p></div>
+<div class="def">
+  <b>Lot</b><span>The tax identity of a slice of shares: what you paid, when. Averaging basis is how people donate a cheap lot to the Franchise Tax Board.</span>
+  <b>High-basis</b><span>Shares you paid a lot for. Gain is small, so CA tax is small. Sell these first.</span>
+  <b>Low-basis</b><span>Old cheap shares. Huge paper gain. Quarantine. Do not FIFO into them.</span>
+  <b>B · drip</b><span>Primary if the lot files export. Sell a little of the expensive shares over time. Can stand leftover concentration.</span>
+  <b>C · pause</b><span>Primary if export slips. Cash that lands sits in the idle mix below. Do not “rebalance.”</span>
+  <b>A · sell to 0%</b><span>Dump the name. Forbidden without exact lots. FIFO will hit a low-basis lot.</span>
+  <b>Exchange fund</b><span>A 7-year wrapper that defers tax on old low-basis shares. It does not erase the tax. Using it on high-basis shares is theater.</span>
+</div>
+<p class="small">FTB, 28 Jan 2026: “California does not have a lower rate for capital gains.” Top CA 13.3% (12.3% + 1% surcharge over $1M). Federal long-term still 0/15/20 plus 3.8% NIIT. CA does not conform to federal QSBS exclusion.</p>
 <div class="grid4">
-  <div class="card"><h4>T-bills</h4><p class="score">30%</p><p>CA-exempt idle cash.</p></div>
+  <div class="card"><h4>T-bills</h4><p class="score">30%</p><p>CA-exempt idle cash, only if cash has landed and lots are not ready.</p></div>
   <div class="card"><h4>VTI</h4><p class="score">40%</p><p>Broad US. Not VOO.</p></div>
   <div class="card"><h4>VXUS</h4><p class="score">20%</p><p>Ex-US.</p></div>
   <div class="card"><h4>QQQM</h4><p class="score">10%</p><p>Satellite, not the offload.</p></div>
@@ -285,7 +342,6 @@ details summary{cursor:pointer;font-weight:600}
   <li>Sell without lots · exchange fund as tax-free diversification</li>
   <li>VOO · QSBS at CA · 401(k) as the offload · tickets, broker login, family emails</li>
 </ul>
-<p class="small">Blocked until Book A and Book B lot reports exist as files. Idle mix only if cash has landed and lots are not ready.</p>
 <details><summary>Sources</summary><p class="small">ftb.ca.gov 2026-01-28 “California does not have a lower rate for capital gains” · siliconvalleytax.co 2026-06-26 · usecache.com · kitces.com 2026-04-29</p></details>
 </section>
 
@@ -293,17 +349,20 @@ details summary{cursor:pointer;font-weight:600}
 <p class="chapno">07</p>
 <p class="kicker">Curator as LifeOS</p>
 <h2>One private Today. Category is a no.</h2>
-<div class="verdict"><p>P1 private-only, 4.5/5. Freeze the IA. Cap four hours. P3 category scored 1 — killed. Three homes is how Check-in died. Do not invent likes, followers, or item counts. <span class="badge j">Judgment</span></p></div>
+<div class="verdict"><p>Curator is a private morning surface — letter, gym, what to wear — not a clothing social network. Keep that (P1, scored 4.5/5). Kill public “discover / community / drops” (P3, scored 1). Freeze the information architecture. Cap four hours. Do not invent likes, followers, or item counts. <span class="badge j">Judgment</span></p></div>
+<div class="prose">
+  <p>Today = the one daily screen. Three homes is how Check-in died after 22 Aug: context split across Curator, Nova, and Hermes, and the gym line never landed. Stylebook still exists as a $4.99 catalog, not as a company. Acloset locks you at 100 items after upload labor. Indyx styling packages went unsold (Wirecutter, May 2026). Category surfaces are how a private tool becomes a content company with no distribution.</p>
+</div>
 <table>
   <tr><th>Job</th><th>Owner</th></tr>
   <tr><td>Morning letter · gym spelled out · wear strip · one culture line</td><td class="g">Curator</td></tr>
-  <tr><td>Money · shop · shadow · health · sixth tab</td><td class="x">Forbidden</td></tr>
+  <tr><td>Money · shop · shadow · health · sixth tab</td><td class="x">Forbidden on every agent</td></tr>
 </table>
 <div class="grid4">
-  <div class="card"><h4>C1</h4><p class="g">Do this.</p><p>Open 5 days. LifeOS 3h. Studio 27h. Private Today is the product.</p></div>
+  <div class="card"><h4>C1 private Today</h4><p class="g">Do this.</p><p>Open 5 days. LifeOS 3h. Studio 27h. Private Today is the product.</p></div>
   <div class="card"><h4>C2 three homes</h4><p class="x">Kill.</p><p>Wasted context. How Check-in died after 22 Aug.</p></div>
   <div class="card"><h4>C3 sell it</h4><p class="x">Kill.</p><p>90 days, 0 paying. Stylebook is the $4.99 caution.</p></div>
-  <div class="card"><h4>C4 Optimizer year</h4><p class="x">Kill.</p><p>Tabs multiply. Category is a no.</p></div>
+  <div class="card"><h4>C4 Optimizer year</h4><p class="x">Kill.</p><p>Tabs multiply. Horizon starves. Category is a no.</p></div>
 </div>
 <ul class="kill">
   <li>Acloset 100-item lock · Indyx unsold packages · Pureple · Lookn · shop-the-look stylists</li>
@@ -316,16 +375,23 @@ details summary{cursor:pointer;font-weight:600}
 <p class="chapno">08</p>
 <p class="kicker">Studio agent OS</p>
 <h2>Bot routes. SuperGrok and Cursor ship.</h2>
-<div class="verdict"><p>Scenario B. Remaining Bot units <span class="badge">Unknown</span> — no fake bar. Overnight Heavy only for packed briefs that emit files. Fail-closed golden is the un-overplayed bit. <span class="badge j">Judgment</span></p></div>
+<div class="verdict"><p>Scenario B: keep Bot quiet. SuperGrok and Cursor do the work. Remaining Bot units are <span class="badge">Unknown</span> — no fake bar. Overnight Heavy only for a packed brief that emits a file. A failing golden test blocks merge. That last bit is the one still empty in the industry. <span class="badge j">Judgment</span></p></div>
+<div class="def">
+  <b>Bot</b><span>A router with a weekly quota, not the IDE. A thread that does not name an output file is a process fail.</span>
+  <b>SuperGrok</b><span><span class="mono">grok -p --effort xhigh</span> — the factory for packed research. Prompt after the flag. Never paste raw ELF.</span>
+  <b>Cursor</b><span>Product chunks, worktree discipline. Not cloud agents on chores.</span>
+  <b>Golden / validate</b><span>A test fixture that must pass before merge. Vague “please review the PR” is the overplayed version.</span>
+  <b>Scenario B</b><span>Ship with Bot silent. Best shipping, best quota survival. A = Heavy nights (burns quota). C = hybrid budgets, only if written and fail-closed.</span>
+</div>
 <table>
   <tr><th>Rule</th><th></th></tr>
-  <tr><td>Bot</td><td class="g">Router with a written allow-list. Thread that does not name an output file is a process fail</td></tr>
-  <tr><td>SuperGrok</td><td class="g"><span class="mono">grok -p --effort xhigh</span> — prompt after the flag, never raw ELF</td></tr>
-  <tr><td>Cursor</td><td class="g">Product chunks. Worktree discipline. Not cloud agents on chores</td></tr>
+  <tr><td>Bot</td><td class="g">Written allow-list. No file named → process fail</td></tr>
+  <tr><td>SuperGrok</td><td class="g">Prompt after <span class="mono">-p</span>. Heavy is not chat</td></tr>
+  <tr><td>Cursor</td><td class="g">Product chunks. Worktrees. Not chores</td></tr>
   <tr><td>Golden / validate</td><td class="g">PR cannot merge if it fails</td></tr>
   <tr><td>Silence</td><td class="g">Undeployed quota is cervical insurance. 100% util is not a virtue</td></tr>
 </table>
-<p class="small">Planning split — not telemetry: product 55% · research 20% · SKU video 10% · audits 5% · undeployed 10%. Cursor Pro $20. Claude Max $100–200.</p>
+<p class="small">Planning split — not telemetry: product 55% · research 20% · SKU video 10% · audits 5% · undeployed 10%. Cursor Pro $20. Claude Max $100–200. xAI shared weekly pool across Chat/Imagine/Voice/Build/API from Jun 2026; Bot metered separately.</p>
 <div class="grid3">
   <div class="card"><h4>A Heavy nights</h4><p>Ships research. Burns quota. Not primary.</p></div>
   <div class="card"><h4>B Ship, Bot silent</h4><p class="g">Primary.</p><p>Best shipping. Best quota survival.</p></div>
@@ -339,7 +405,7 @@ details summary{cursor:pointer;font-weight:600}
 </section>
 
 <footer class="note">
-  Rebuild 4 · 6 September 2026 IST · key points only · sandbox / research only · no invented NAV, lots, quota %, or social metrics.
+  Rebuild 5 · 6 September 2026 IST · context restored on every call · sandbox / research only · no invented NAV, lots, quota %, or social metrics.
 </footer>
 </div>
 <script>
